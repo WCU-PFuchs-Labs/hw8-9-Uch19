@@ -1,0 +1,156 @@
+package binary;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
+  private Node root;
+  private double fitness;
+    private ArrayList<Node> crossNodes;
+    
+    
+    /**
+     * @param - node The node to be collected.
+     * TODO: implement this method
+     */
+    public void collect(Node node) {
+        // add node to crossNodes if it is not a leaf node
+        if(node.left != null || node.right != null) {
+            crossNodes.add(node);
+        }
+        
+    }
+    
+    
+    // DO NOT EDIT code below for Homework 8. 
+    // If you are doing the challenge mentioned in 
+    // the comments above the crossover method
+    // then you should create a second crossover
+    // method above this comment with a slightly 
+    // different name that handles all types
+    // of crossover.
+    
+    
+    /**
+     * This initializes the crossNodes field and
+     * calls the root Node's traverse method on this
+     * so that this can collect the Binop Nodes.
+     */
+    public void traverse() {
+        crossNodes = new ArrayList<Node>();
+        root.traverse(this);
+    }
+    
+    /**
+     * This returns a String with all of the binop Strings
+     * separated by semicolons
+     */
+    public String getCrossNodes() {
+        StringBuilder string = new StringBuilder();
+        int lastIndex = crossNodes.size() - 1;
+        for(int i = 0; i < lastIndex; ++i) {
+            Node node = crossNodes.get(i);
+            string.append(node.toString());
+            string.append(";");
+        }
+        string.append(crossNodes.get(lastIndex));
+        return string.toString();
+    }
+   
+    
+    /**
+     * this implements left child to left child
+     * and right child to right child crossover.
+     * Challenge: additionally implement left to 
+     * right child and right to left child crossover.
+     */
+    public void crossover(GPTree tree, Random rand) {
+        // find the points for crossover
+        this.traverse();
+        tree.traverse();
+        int thisPoint = rand.nextInt(this.crossNodes.size());
+        int treePoint = rand.nextInt(tree.crossNodes.size());
+        boolean left = rand.nextBoolean();
+        // get the connection points
+        Node thisTrunk = crossNodes.get(thisPoint);
+        Node treeTrunk = tree.crossNodes.get(treePoint);
+
+        
+        if(left) {
+            thisTrunk.swapLeft(treeTrunk);
+            
+        } else {
+            thisTrunk.swapRight(treeTrunk);
+        }
+        
+    }
+
+    GPTree() { 
+        root = null; 
+    }    
+    
+    public GPTree(NodeFactory n, int maxDepth, Random rand) {
+        root = n.getOperator(rand);
+        root.addRandomKids(n, maxDepth, rand);
+    }
+ 
+    public String toString() { 
+        return root.toString(); 
+    }
+    
+    public double eval(double[] data) { 
+        return root.eval(data); 
+    }
+
+    public void evalFitness(DataSet dataSet){
+      double error = 0.0;
+
+      for(int i = 0; i < dataSet.getRows()){
+        
+        double xValues = DataRow.getgetNumIndependentVariables(i);
+
+        double yValue = DataRow.getDependentVariable(i);
+
+        double predictedy = this.eval(DataRow.getIndependentVariables(i));
+
+        double differnce = yValue - predictedy;
+
+         error = differnce * differnce;
+      }
+      this.fitness = error;
+    }
+   
+    public double getFitness(){
+      return this.fitness;
+    }
+
+    public int compareto(GPTree t){
+      if(this.fitness < t.fitness){
+        return -1;
+      }else if(this.fitness > t.fitness){
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+
+    public boolean equals(Object o){
+      if(compareto(GPTree) o) == 0){
+        return true;
+      }else{
+        return false;
+      }
+
+    public object clone(){
+      GPTree gpt = null;
+      try{
+        gpt = (GPTree) super.clone();
+      }catch(CloneNotSupportedException e){
+        System.out.println("GPTree can't clone");
+      }
+      gpt.root = (Node) this.root.clone();
+      return gpt;
+    }
+         
+}
+
