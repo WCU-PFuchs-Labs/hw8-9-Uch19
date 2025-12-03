@@ -11,7 +11,7 @@ public class TestGeneration {
 
     Generation gen = new Generation(500,5,filename);
 
-    gen.printBesTree();
+    gen.printBestTree();
     gen.printBestFitness();
 
     System.out.println("\nTop Ten Fitness Values;");
