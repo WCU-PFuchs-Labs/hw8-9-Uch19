@@ -1,7 +1,8 @@
 package binary;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+import tabular.DataSet;
+
 
 public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
   private Node root;
