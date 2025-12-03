@@ -9,8 +9,8 @@ public class Generation {
 public Generation(int size, int maxDepth, String fileName) {
    dataSet = new dataSet(fileName);
 
-   terminalFactory tFactory= new terminalFactory;
-   operatorFactory oFactory= new operatorFactory;
+   terminalFactory tFactory= new terminalFactory();
+   operatorFactory oFactory= new operatorFactory();
    Random rand = new Random();
 
     GPTree[] population = new GPTree[size];
@@ -36,7 +36,7 @@ public Generation(int size, int maxDepth, String fileName) {
     return topTen;
   }
 
-  public voids printBestFitness(){
+  public void printBestFitness(){
     System.out.println("Best fitness: " + population[0].getFitness());
   }
 
