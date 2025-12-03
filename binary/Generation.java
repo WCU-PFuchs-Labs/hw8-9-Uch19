@@ -1,13 +1,15 @@
 package binary;
 
 import java.util.*;
+import tabular.DataSet;
+
 
 public class Generation {
   private int depth;
 
 
 public Generation(int size, int maxDepth, String fileName) {
-   dataSet = new dataSet(fileName);
+   DataSet dataSet = new dataSet(fileName);
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
