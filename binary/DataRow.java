@@ -1,4 +1,4 @@
-package tabular;
+package binary;
 
 /**
  * Author: Uche Okere
