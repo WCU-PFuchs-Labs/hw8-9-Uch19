@@ -141,16 +141,14 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
         return false;
       }
 
-    public Object clone(){
-      GPTree gpt = null;
+    public GPTree clone(){
       try{
-        gpt = (GPTree) super.clone();
+        GPTree gpt = (GPTree) super.clone();
+        copy.root = (Node) this.root.clone();
+        return copy;
       }catch(CloneNotSupportedException e){
         System.out.println("GPTree can't clone");
       }
-      gpt.root = (Node) this.root.clone();
-      return gpt;
-    }
-         
+    }        
 }
 
