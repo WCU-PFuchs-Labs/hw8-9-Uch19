@@ -9,7 +9,7 @@ public class Generation {
 
 
 public Generation(int size, int maxDepth, String fileName) {
-   DataSet dataSet = new DataSet(fileName);
+   dataSet = new DataSet(fileName);
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
@@ -18,7 +18,7 @@ public Generation(int size, int maxDepth, String fileName) {
 
    population = new GPTree[size];
    for(int i=0; i<size; i++) {
-        population[i] = new GPTree(oFactory, maxDepth, rand);
+        population[i] = new GPTree(nFactory, maxDepth, rand);
         population[i].evalFitness(dataSet);
     }
 
