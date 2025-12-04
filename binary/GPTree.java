@@ -135,7 +135,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
     }
 
     public boolean equals(Object o){
-      if(compareto((GPTree) o) == 0){
+      if(compareTo((GPTree) o) == 0){
         return true;
       }else{
         return false;
