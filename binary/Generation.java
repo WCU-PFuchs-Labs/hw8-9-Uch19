@@ -5,6 +5,7 @@ import java.util.*;
 public class Generation {
   private int depth;
   private GPTree[] population;
+  private DataSet dataSet;
 
 
 public Generation(int size, int maxDepth, String fileName) {
@@ -12,6 +13,7 @@ public Generation(int size, int maxDepth, String fileName) {
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
+   NodeFactory nFactory = new NodeFactory(oFactory, tFactory);
    Random rand = new Random();
 
    population = new GPTree[size];
