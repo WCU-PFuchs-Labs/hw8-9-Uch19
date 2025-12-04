@@ -11,7 +11,8 @@ public class NodeFactory {
 
     }
     public Node getOperator(Random rand) {
-        return oFactory.getOperator(rand,null,null);
+        Op op =  oFactory.getOperator(rand,null,null);
+        return new Node((Binop) op,null,null);
         }
         
 
@@ -19,7 +20,8 @@ public class NodeFactory {
         return 4;
     }
     public Node getTerminal(Random rand) {
-        return tFactory.getTerminal(rand);
+        Op op = tFactory.getTerminal(rand);
+        return new Node(op);
     }
     public int getNumIndepVars() {
         return 1;
