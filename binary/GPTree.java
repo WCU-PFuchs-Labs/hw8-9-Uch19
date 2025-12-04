@@ -107,7 +107,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
 
       for(DataRow row : dataSet.getRows()){
         
-        double[] xValues = row.getNumIndependentVariables();
+        double[] xValues = row.getIndependentVariables();
 
         double yValue = row.getDependentVariable();
 
