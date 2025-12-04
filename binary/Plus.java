@@ -10,7 +10,11 @@ package binary;
       * @return the result of adding
       * left to right 
       */
-  @Override  
+  
+  public Plus(Node left, Node right) {
+    super(left, right);
+  }
+   @Override  
   public double eval(double left, double right) {
         return left + right;
     }
