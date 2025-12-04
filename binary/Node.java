@@ -12,7 +12,7 @@ public class Node implements Cloneable  {
     private Op operation;
     protected int depth;
 
-    public Node(Unop operation) {
+    public Node(Op operation) {
         this.operation = operation;
     }
 
