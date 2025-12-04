@@ -2,34 +2,26 @@ package binary;
 import java.util.Random;
 
 public class NodeFactory {
-    private int numIndepVars;
-    private Binop[] currentOps;
+    private OperatorFactory oFactory;
+    private TerminalFactory tFactory;
     
-    public NodeFactory(Binop[] b, int numVars) {
-        currentOps = b;
-        numIndepVars = numVars;
+    public NodeFactory(OperatorFactory oFactory, TerminalFactory tFactory) {
+       this.oFactory = oFactory;
+        this.tFactory = tFactory;
 
     }
     public Node getOperator(Random rand) {
-        int index = rand.nextInt(currentOps.length);
-        Binop opCopy =  (Binop) currentOps[index].clone();
-            return new Node(opCopy, null, null);
+        return oFactory.getOperator(rand,null,null);
         }
         
 
     public int getNumOps() {
-        return currentOps.length;
+        return 4;
     }
     public Node getTerminal(Random rand) {
-        int r = rand.nextInt(numIndepVars + 1);
-        if(r < numIndepVars){
-         return new Node(new Variable(r));
-        }else{
-            double val  = rand.nextDouble();
-            return new Node(new Const(val));
-        }
+        return tFactory.getTerminal(rand);
     }
     public int getNumIndepVars() {
-        return numIndepVars;
+        return 1;
     }
 }
