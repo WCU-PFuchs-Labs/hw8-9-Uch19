@@ -1,28 +1,31 @@
 package binary;
+import java.util.*;
 
 public class operatorFactory {
-  private Node[] operators;
+  private Binop[] operators;
 
   public operatorFactory() {
-    operators = new Node[]{
-        new Plus(),
-        new Minus(),
-        new Mult(),
-        new Divide()
+    operators = new Binop[]{
+        new Plus(null, null),
+        new Minus(null, null),
+        new Mult(null, null),
+        new Divide(null, null)
     };
   }
-  public Node getOperator(Random rand, Node left, Node right) {
+  public Op getOperator(Random rand, Node left, Node right) {
     int index = rand.nextInt(operators.length);
-    Node op = operators[index];
+    Binop op = operators[index];
     if(op instanceof Plus) {
-      return new Plus(left, right);
-    if(op instanceof Minus) {
-      return new Minus(left, right);
+        return new Plus(left, right);
+    } else if(op instanceof Minus) {
+        return new Minus(left, right);
     } else if(op instanceof Mult) {
-      return new Mult(left, right);
+        return new Mult(left, right);
     } else if(op instanceof Divide) {
-      return new Divide(left, right);
-      return null;
+        return new Divide(left, right);
+      
     } 
+    return null;
   }
 }
+
