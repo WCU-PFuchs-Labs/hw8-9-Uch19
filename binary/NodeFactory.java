@@ -2,10 +2,10 @@ package binary;
 import java.util.Random;
 
 public class NodeFactory {
-    private OperatorFactory oFactory;
-    private TerminalFactory tFactory;
+    private operatorFactory oFactory;
+    private terminalFactory tFactory;
     
-    public NodeFactory(OperatorFactory oFactory, TerminalFactory tFactory) {
+    public NodeFactory(operatorFactory oFactory, terminalFactory tFactory) {
        this.oFactory = oFactory;
         this.tFactory = tFactory;
 
