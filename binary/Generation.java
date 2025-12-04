@@ -48,7 +48,12 @@ public void printBestTree(){
     System.out.println("Best Tree: " + population[0]);
   }
 
-public void evolve(){
+
+  
+  public void mutate(Random rand){
+
+  }
+  public void evolve(){
     Random rand = new Random();
     GPTree[] newPopulation = new GPTree[population.length];
     for(int i=0; i<population.length; i+=2) {
