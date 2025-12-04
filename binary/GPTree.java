@@ -148,7 +148,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
         copy.root = (Node) this.root.clone();
         return copy;
       }catch(CloneNotSupportedException e){
-        System.out.println("GPTree can't clone");
+        throw new AssertionError();
       }
     }        
  }
