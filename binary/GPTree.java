@@ -142,6 +142,10 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
       }
     }  
 
+    public void mutate(Random rand){
+
+    }
+  
     public GPTree clone(){
       try{
         GPTree gpt = (GPTree) super.clone();
