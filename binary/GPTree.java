@@ -106,7 +106,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
     public void evalFitness(DataSet dataSet){
       double error = 0.0;
 
-      for(int i = 0; i < dataSet.getRows()){
+      for(int i = 0; i < dataSet.getRows(); i++){
         
         double xValues = DataRow.getgetNumIndependentVariables(i);
 
