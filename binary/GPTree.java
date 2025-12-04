@@ -1,7 +1,6 @@
 package binary;
 
 import java.util.*;
-import DataSet;
 
 
 public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
@@ -142,7 +141,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
         return false;
       }
 
-    public object clone(){
+    public Object clone(){
       GPTree gpt = null;
       try{
         gpt = (GPTree) super.clone();
