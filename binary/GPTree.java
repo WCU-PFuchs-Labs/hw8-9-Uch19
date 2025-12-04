@@ -124,7 +124,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
       return this.fitness;
     }
 
-    public int compareto(GPTree t){
+    public int compareTo(GPTree t){
       if(this.fitness < t.fitness){
         return -1;
       }else if(this.fitness > t.fitness){
@@ -140,6 +140,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
       }else{
         return false;
       }
+    }  
 
     public GPTree clone(){
       try{
@@ -150,5 +151,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
         System.out.println("GPTree can't clone");
       }
     }        
-}
+ }
+ 
+  
 
