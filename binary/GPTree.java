@@ -1,7 +1,7 @@
 package binary;
 
 import java.util.*;
-import tabular.DataSet;
+import DataSet;
 
 
 public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
