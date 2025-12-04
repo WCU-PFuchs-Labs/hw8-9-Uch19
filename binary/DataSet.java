@@ -1,4 +1,4 @@
-package tabular;
+package binary;
 import java.util.*;
 import java.io.*;
 /**
