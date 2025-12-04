@@ -11,7 +11,11 @@ package binary;
       * left to right 
       */
   
-  public double eval(double left, double right) {
+     public Minus(Node left, Node right) {
+        super(left, right);
+     }
+  
+     public double eval(double left, double right) {
         return left - right;
     }
 
@@ -21,3 +25,4 @@ package binary;
      return "-";  
     } 
 }
+
