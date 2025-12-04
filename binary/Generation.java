@@ -1,23 +1,22 @@
 package binary;
 
 import java.util.*;
-import tabular.DataSet;
-
 
 public class Generation {
   private int depth;
+  private GPTree[] population;
 
 
 public Generation(int size, int maxDepth, String fileName) {
-   DataSet dataSet = new dataSet(fileName);
+   DataSet dataSet = new DataSet(fileName);
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
    Random rand = new Random();
 
-    GPTree[] population = new GPTree[size];
+   population = new GPTree[size];
    for(int i=0; i<size; i++) {
-        population[i] = new GPTree(tFactory, oFactory, maxDepth, rand);
+        population[i] = new GPTree(oFactory, maxDepth, rand);
         population[i].evalFitness(dataSet);
     }
 
@@ -30,12 +29,13 @@ public Generation(int size, int maxDepth, String fileName) {
     }
   }
 
-  public ArrayList<GPTtree> getTopTen(){
-    ArrayList<GPTree> topTen = new ArrayList<GPTree>();
-    for(int i=0; i<10; i++) {
+  public ArrayList<GPTree> getTopTen(){
+    ArrayList<GPTree> topTen = new ArrayList<>();
+    for(int i=0; i<10 && i < population.length; i++) {
         topTen.add(population[i]);
+            return topTen;
+
     }
-    return topTen;
   }
 
   public void printBestFitness(){
@@ -43,7 +43,7 @@ public Generation(int size, int maxDepth, String fileName) {
   }
 
 public void printBestTree(){
-    System.out.println("Best Tree: " + population[0].toString());
+    System.out.println("Best Tree: " + population[0]);
   }
 
 public void evolve(){
@@ -64,6 +64,7 @@ public void evolve(){
     depth++;
   }
 }
+
 
 
 
