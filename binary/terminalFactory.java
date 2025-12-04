@@ -3,12 +3,11 @@ package binary;
 import java.util.Random;
 
 public class terminalFactory {
-  public Node getTerminal(Random rand){
+  public Op getTerminal(Random rand){
     if(rand.nextBoolean()){
-      return new Variable();
+      return new Variable(rand.nextInt(10));
     } else {
-      double val = rand.nextDouble();
-      return new Const(val);
+        return new Const(rand.nextDouble() * 10); 
     }
   }
 }
