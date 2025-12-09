@@ -115,7 +115,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
 
         double differnce = yValue - predictedy;
 
-         error = differnce * differnce;
+        error += differnce * differnce;
       }
       this.fitness = error;
     }
