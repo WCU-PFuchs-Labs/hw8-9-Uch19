@@ -14,13 +14,13 @@ public class TestGeneration {
     gen.printBestTree();
     gen.printBestFitness();
 
-    System.out.println("\nTop Ten Fitness Values:");
+    System.out.println("\nTop Ten Fitness Values: ");
     ArrayList<GPTree> topTen = gen.getTopTen();
     for(int i = 0; i < topTen.size(); i++) {
       System.out.printf("%.2f", topTen.get(i).getFitness());
-      if( i < topTen.size() - 1)
+      if(i < topTen.size() - 1)
       {
-        System.out.println(",");
+        System.out.println(", ");
       }
     }
 
