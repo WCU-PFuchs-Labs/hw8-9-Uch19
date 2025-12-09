@@ -4,10 +4,13 @@ import java.util.Random;
 public class NodeFactory {
     private operatorFactory oFactory;
     private terminalFactory tFactory;
+     private int numIndepVars;
+
     
-    public NodeFactory(operatorFactory oFactory, terminalFactory tFactory) {
+    public NodeFactory(operatorFactory oFactory, terminalFactory tFactory, int numIndepVars) {
        this.oFactory = oFactory;
-        this.tFactory = tFactory;
+       this.tFactory = tFactory;
+       this.numIndepVars = numIndepVars;
 
     }
     public Node getOperator(Random rand) {
@@ -20,10 +23,15 @@ public class NodeFactory {
         return 4;
     }
     public Node getTerminal(Random rand) {
-        Op op = tFactory.getTerminal(rand);
-        return new Node(op);
-    }
+        if(rand.nextBoolean()){
+            int index = rand.nextInt(numIndepVars);
+            return new Node(new Variable(index));
+        }else{
+            double val - rand.nextDouble();
+            return new Node(new Const(val));
+        }
+    }  
     public int getNumIndepVars() {
-        return 1;
+        return numIndepVars1;
     }
 }
