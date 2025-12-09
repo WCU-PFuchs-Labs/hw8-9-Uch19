@@ -150,7 +150,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
     @Override
     public GPTree clone(){
       try{
-        GPTree gpt = (GPTree) super.clone();
+        GPTree copy = (GPTree) super.clone();
         copy.root = (Node) this.root.clone();
         return copy;
       }catch(CloneNotSupportedException e){
