@@ -134,6 +134,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
       }
     }
 
+
     public boolean equals(Object o){
       if(compareTo((GPTree) o) == 0){
         return true;
@@ -146,6 +147,7 @@ public class GPTree implements Comparable<GPTree>, Collector, Cloneable{
 
     }
   
+    @Override
     public GPTree clone(){
       try{
         GPTree gpt = (GPTree) super.clone();
