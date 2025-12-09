@@ -76,8 +76,8 @@ public class Node implements Cloneable  {
 
         }
 
-        choice = rand.nextInt(nf.numOps());
-            if (choice < 1)
+        num = rand.nextInt(nf.getNumOps());
+            if (num < 1)
         {
             this.right = nf.getOperator(rand);
             this.right.depth = depth + 1;
