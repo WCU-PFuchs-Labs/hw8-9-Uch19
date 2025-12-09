@@ -13,7 +13,8 @@ public Generation(int size, int maxDepth, String fileName) {
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
-   NodeFactory nFactory = new NodeFactory(oFactory, tFactory);
+   int numVars  dataSet.getNumIndependentVariables();
+   NodeFactory nFactory = new NodeFactory(oFactory, tFactory, numVars);
    Random rand = new Random();
 
    population = new GPTree[size];
