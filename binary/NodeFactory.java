@@ -27,11 +27,11 @@ public class NodeFactory {
             int index = rand.nextInt(numIndepVars);
             return new Node(new Variable(index));
         }else{
-            double val - rand.nextDouble();
+            double val = rand.nextDouble();
             return new Node(new Const(val));
         }
     }  
     public int getNumIndepVars() {
-        return numIndepVars1;
+        return numIndepVars;
     }
 }
