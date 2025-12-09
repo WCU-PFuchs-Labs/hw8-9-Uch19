@@ -35,9 +35,9 @@ public Generation(int size, int maxDepth, String fileName) {
     ArrayList<GPTree> topTen = new ArrayList<>();
     for(int i=0; i<10 && i < population.length; i++) {
         topTen.add(population[i]);
-            return topTen;
-
+            
     }
+    return topTen;
   }
 
   public void printBestFitness(){
