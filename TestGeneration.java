@@ -20,7 +20,7 @@ public class TestGeneration {
       System.out.printf("%.2f", topTen.get(i).getFitness());
       if(i < topTen.size() - 1)
       {
-        System.out.println(", ");
+        System.out.print(", ");
       }
     }
 
