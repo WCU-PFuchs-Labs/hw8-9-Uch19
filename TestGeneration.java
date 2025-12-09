@@ -16,7 +16,7 @@ public class TestGeneration {
 
     System.out.println("\nTop Ten Fitness Values;");
     for(GPTree tree : gen.getTopTen()) {
-      System.out.println(tree.getFitness());
+      System.out.println("%.2f", tree.getFitness());
     }
     scanner.close();
  }
