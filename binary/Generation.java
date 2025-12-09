@@ -13,7 +13,7 @@ public Generation(int size, int maxDepth, String fileName) {
 
    terminalFactory tFactory= new terminalFactory();
    operatorFactory oFactory= new operatorFactory();
-   int numVars  dataSet.getNumIndependentVariables();
+   int numVars = dataSet.getNumIndependentVariables();
    NodeFactory nFactory = new NodeFactory(oFactory, tFactory, numVars);
    Random rand = new Random();
 
