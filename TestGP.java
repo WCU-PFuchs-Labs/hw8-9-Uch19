@@ -2,7 +2,7 @@ import binary.*;
 
 import java.util.*;
 
-public class TestGeneration {
+public class TestGP {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
