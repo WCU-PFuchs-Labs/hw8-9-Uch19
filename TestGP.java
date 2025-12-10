@@ -21,9 +21,7 @@ public class TestGeneration {
       gen.evolve();
         
       }
-
-     
-  
+       
   }
   scanner.close();
 }  
