@@ -11,10 +11,11 @@ public class TestGP {
 
     Generation gen = new Generation(500,5,filename);
 
-    for(int i = 0; i < 50; i++)
+    for(int i = 1; i < 50; i++)
       {
         System.out.println("\nGeneration" + i + ":");
 
+      gen.evalAll();
       gen.printBestTree();
       gen.printBestFitness();
 
