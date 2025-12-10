@@ -21,7 +21,8 @@ public class TestGP {
       gen.evolve();
         
       }
-       
+   
+    scanner.close();
+
   }
-  scanner.close();
 }  
